@@ -8,7 +8,7 @@ export const TIME: { [key: string]: number } = {
 
 }
 export const [ERROR, OK_EMOJI]: string[] = ['🆘', '🆗'];
-const EMBED_URL: string = 'https://lh4.googleusercontent.com/go80mh9N90WT7n0mIZM5Kl9uuZhLYLHz-wmPnnx3ioTH2MBivRSLpCKsWoMGWBcgGpo=w2400';
+const EMBED_URL: string = 'https://pasteboard.co/Yba2uR5c85RG.png';
 
 export const getDaysSince: Function = (start: { [key: string]: number }): number => {
     if (start.month > 12 || start.month < 1) return -1;                         // make sure that a valid month is provided (1-12)
@@ -21,9 +21,9 @@ export const getDaysSince: Function = (start: { [key: string]: number }): number
 
 export const embedUsage: Function = (botID: number): MessageEmbed => {
     return new MessageEmbed()
-        .setTitle('⏰ | Days Since')
+        .setTitle(' <a:arrow:1463406147628302376> | Days Since')
         .setFields([
-            { name: "Days since a Ragnar Incident", value: `< **Since** \`DD:MM:YY\`` }
+            { name: "Days since a Ragnar Incident", value: ` **Since** \`DD:MM:YY\`` }
         ])
         .setColor('#3b0202')
         .setImage(EMBED_URL)
