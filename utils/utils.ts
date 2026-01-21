@@ -8,7 +8,7 @@ export const TIME: { [key: string]: number } = {
 
 }
 export const [ERROR, OK_EMOJI]: string[] = ['🆘', '🆗'];
-const EMBED_URL: string = 'https://freepngimg.com/save/17174-time-free-download-png/512x512';
+const EMBED_URL: string = 'https://cdn3.emoji.gg/emojis/5036-shrug.png';
 
 export const getDaysSince: Function = (start: { [key: string]: number }): number => {
     if (start.month > 12 || start.month < 1) return -1;                         // make sure that a valid month is provided (1-12)
@@ -36,6 +36,5 @@ export const embedDaysSince = (dayCount: number, dayStart: string): MessageEmbed
         .setFields([
             { name: '**Days free:**', value: `${dayCount}` }
         ])
-        .setImage(EMBED_URL)
-        .setThumbnail(EMBED_URL)
+        .setThumbnail(EMBED_URL) 
 }
