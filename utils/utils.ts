@@ -37,4 +37,5 @@ export const embedDaysSince = (dayCount: number, dayStart: string): MessageEmbed
             { name: '**Days free:**', value: `${dayCount}` }
         ])
         .setImage(EMBED_URL)
+        .setThumbnail(EMBED_URL)
 }
