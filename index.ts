@@ -1,8 +1,8 @@
 #!/usr/bin/env ts-node
 import dotenv from 'dotenv';
 import DiscordJS, { Intents } from 'discord.js';
-import { TIME, ERROR, OK_EMOJI } from './commands/utils/utils';
-import { getDaysSince, embedUsage, embedDaysSince } from './commands/utils/utils';
+import { TIME, ERROR, OK_EMOJI } from './utils/utils';
+import { getDaysSince, embedUsage, embedDaysSince } from './utils/utils';
 
 dotenv.config();            // instantiate the dotenv variables
 require('./utils/https')    // instantiate the HTTPS monitor
