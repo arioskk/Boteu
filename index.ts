@@ -1,8 +1,8 @@
 #!/usr/bin/env ts-node
 import dotenv from 'dotenv';
 import DiscordJS, { Intents } from 'discord.js';
-import { TIME, ERROR, OK_EMOJI } from './utils/utils';
-import { getDaysSince, embedUsage, embedDaysSince } from './utils/utils';
+import { TIME, ERROR, OK_EMOJI } from './commands/utils/utils';
+import { getDaysSince, embedUsage, embedDaysSince } from './commands/utils/utils';
 
 dotenv.config();            // instantiate the dotenv variables
 require('./utils/https')    // instantiate the HTTPS monitor
@@ -15,6 +15,8 @@ const client: DiscordJS.Client = new DiscordJS.Client({
     ]
 });
 
+const prefix = '!'; 
+
 client.on('ready', (): void => {
     console.log(`${client.user!.tag} is online!`)
     client.user!.setActivity('counting the days...');
@@ -22,6 +24,7 @@ client.on('ready', (): void => {
 
 client.on('messageCreate', async (msg: DiscordJS.Message): Promise<void> => {
     if (msg.author.bot) return; // don't reply to bots - base case
+    if (!msg.content.startsWith(prefix)) return;
     
     if (msg.mentions.has(client.user!.id)) {
         const command: string = msg.content.trim().split(' ')[1];
