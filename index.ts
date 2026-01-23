@@ -13,9 +13,7 @@ const client: DiscordJS.Client = new DiscordJS.Client({
         Intents.FLAGS.GUILD_MESSAGES,
         Intents.FLAGS.GUILD_MESSAGE_REACTIONS
     ]
-});
-
-const prefix = '!'; 
+}); 
 
 client.on('ready', (): void => {
     console.log(`${client.user!.tag} is online!`)
@@ -24,7 +22,6 @@ client.on('ready', (): void => {
 
 client.on('messageCreate', async (msg: DiscordJS.Message): Promise<void> => {
     if (msg.author.bot) return; // don't reply to bots - base case
-    if (!msg.content.startsWith(prefix)) return;
     
     if (msg.mentions.has(client.user!.id)) {
         const command: string = msg.content.trim().split(' ')[1];
